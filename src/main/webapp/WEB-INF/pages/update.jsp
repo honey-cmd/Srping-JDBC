@@ -17,16 +17,10 @@
 </head>
 <body>
 	<div class="container py-5">
-		<h3>Contact Form</h3>
-		<c:url value="/save" var="createDb"></c:url>
-		<form:form method="POST" action="${createDb}" modelAttribute="saveForm">
-		
-		<div class="form-group mb-3 col-5">
-				<form:label path="id">Id</form:label>
-				<form:input path="id" class="form-control" placeholder="Enter Id"/>
-				<form:errors path="id"></form:errors>
-			</div>
-		
+		<h3>Contact Edit</h3>
+		<c:url value="/edit" var="updateDb"></c:url>
+		<form:form method="POST" action="${updateDb}" modelAttribute="updateForm">
+			<form:hidden path="id"/>
 			<div class="form-group mb-3 col-5">
 				<form:label path="name">Name</form:label>
 				<form:input path="name" class="form-control" placeholder="Enter Name"/>
@@ -48,6 +42,7 @@
 				<form:input path="phone" class="form-control" placeholder="Enter Phone"/>
 				<form:errors path="phone"></form:errors>
 			</div>
+			
 			
 			<button type="submit" class="btn btn-primary">Submit</button>
 		</form:form>

@@ -48,10 +48,15 @@
 						<td>${contact.address}</td>
 						<td>${contact.phone}</td>
 						<td>
-						
-							<c:url var="deleteAction" value="/posts/destroy/{id}"/>
-							<a class="btn btn-info" href="${editAction }">Edit</a>
-							<a class="btn btn-danger" href="${deleteAction}">Delete</a>
+							<c:url value="/update" var="updateDb">
+								<c:param name="updateObjId" value="${contact.id}"></c:param>
+							</c:url>
+							<a class="btn btn-info" href="${updateDb}">Edit</a>
+							
+							<c:url value="/delete" var="deleteDb">
+								<c:param name = "deleteId" value="${contact.id}"/>
+							</c:url>
+							<a class="btn btn-danger" href="${deleteDb}" >Delete</a>
 						</td>
 					</tr>
 				</c:forEach>

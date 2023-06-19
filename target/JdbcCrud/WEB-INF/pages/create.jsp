@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,27 +17,33 @@
 </head>
 <body>
 	<div class="container py-5">
-		<h3>Contact List</h3>
-		<c:url value="/contact/lists" var="actionUrl"></c:url>
-		<form method="Post" action="${actionUrl}">
+		<h3>Contact Form</h3>
+		<c:url value="/contact/create/save" var="createDb"></c:url>
+		<form:form method="POST" action="${createDb}" modelAttribute="saveForm">
 			<div class="form-group mb-3 col-5">
-				<label for="Name">Name</label> 
-				<input type="text" class="form-control" id="name" placeholder="Enter Name" />
+				<form:label path="name">Name</form:label>
+				<form:input path="name" class="form-control" placeholder="Enter Name"/>
+				<form:errors path="description"></form:errors>
+			</div>
+			
+			<div class="form-group mb-3 col-5">
+				<form:label path="email">Email</form:label>
+				<form:input path="email" class="form-control" placeholder="Enter Email"/>
+				<form:errors path="email"></form:errors>
 			</div>
 			<div class="form-group mb-3 col-5">
-				<label for="email">Email</label> 
-				<input type="text" class="form-control" id="email" placeholder="Enter email" />
+				<form:label path="address">Address</form:label>
+				<form:input path="address" class="form-control" placeholder="Enter Address"/>
+				<form:errors path="address"></form:errors>
 			</div>
-				<div class="form-group mb-3 col-5">
-				<label for="address">Address</label> 
-				<input type="text" class="form-control" id="address" placeholder="Enter address" />
+			<div class="form-group mb-3 col-5">
+				<form:label path="phone">Phone</form:label>
+				<form:input path="phone" class="form-control" placeholder="Enter Phone"/>
+				<form:errors path="phone"></form:errors>
 			</div>
-				<div class="form-group mb-3 col-5">
-				<label for="phone">Phone</label> 
-				<input type="text" class="form-control" id="phone" placeholder="Enter phone" />
-			</div>
+			
 			<button type="submit" class="btn btn-primary">Submit</button>
-		</form>
+		</form:form>
 	</div>
 </body>
 </html>
