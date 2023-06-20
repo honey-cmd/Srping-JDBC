@@ -1,5 +1,7 @@
 package com.demo.jdbc.web.form;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 import com.demo.jdbc.bl.dto.ContactDto;
 
 import lombok.AllArgsConstructor;
@@ -12,9 +14,13 @@ import lombok.NoArgsConstructor;
 public class ContactForm {
 	
 	private int id;
+@NotBlank(message = "Please enter name")
 	private String name;
+@NotBlank(message = "Please enter email")
 	private String email;
+@NotBlank(message = "Please enter address")
 	private String address;
+@NotBlank(message = "Please enter phone")
 	private String phone;
 	
 

@@ -18,12 +18,19 @@
 <body>
 	<div class="container py-5">
 		<h3>Contact Form</h3>
-		<c:url value="/contact/create/save" var="createDb"></c:url>
+		<c:url value="/save" var="createDb"></c:url>
 		<form:form method="POST" action="${createDb}" modelAttribute="saveForm">
+		
+		<div class="form-group mb-3 col-5">
+				<form:label path="id">Id</form:label>
+				<form:input path="id" class="form-control" placeholder="Enter Id"/>
+				<form:errors path="id"></form:errors>
+			</div>
+		
 			<div class="form-group mb-3 col-5">
 				<form:label path="name">Name</form:label>
 				<form:input path="name" class="form-control" placeholder="Enter Name"/>
-				<form:errors path="description"></form:errors>
+				<form:errors path="name"></form:errors>
 			</div>
 			
 			<div class="form-group mb-3 col-5">

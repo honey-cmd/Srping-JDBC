@@ -15,18 +15,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.demo.jdbc.bl.dto.ContactDto;
-import com.demo.jdbc.bl.service.ContactDao;
+import com.demo.jdbc.bl.service.ContactService;
 import com.demo.jdbc.web.form.ContactForm;
 
 @Controller
 public class ContactController {
 
 	@Autowired
-	private ContactDao contactDao;
+	private ContactService contactDao;
 
 	@GetMapping("/list")
 	public ModelAndView getallContact() {
-		ModelAndView mv = new ModelAndView();
+		ModelAndView mv = new ModelAndView("postListView");
 		List<ContactDto> contactDtoList = this.contactDao.findAll();
 		mv.addObject("contacts", contactDtoList);
 		return mv;
@@ -43,7 +43,7 @@ public class ContactController {
 
 	@RequestMapping("/create")
 	public ModelAndView create() {
-		ModelAndView mv = new ModelAndView();
+		ModelAndView mv = new ModelAndView("postListView");
 		mv.addObject("saveForm", new ContactForm());
 		return mv;
 	}
