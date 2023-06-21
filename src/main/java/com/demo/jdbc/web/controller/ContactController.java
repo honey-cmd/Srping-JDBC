@@ -43,7 +43,7 @@ public class ContactController {
 
 	@RequestMapping("/create")
 	public ModelAndView create() {
-		ModelAndView mv = new ModelAndView("postListView");
+		ModelAndView mv = new ModelAndView("createListView");
 		mv.addObject("saveForm", new ContactForm());
 		return mv;
 	}

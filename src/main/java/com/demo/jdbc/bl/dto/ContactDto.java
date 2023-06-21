@@ -1,14 +1,14 @@
 package com.demo.jdbc.bl.dto;
+
+
 import com.demo.jdbc.persistence.entity.Contact;
 
 import lombok.AllArgsConstructor;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@Getter
-@Setter
+import lombok.NoArgsConstructor;
+
+
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -32,16 +32,9 @@ private String phone;
 	}
 
 
-
-
-
-
 	public int getId() {
 		return id;
 	}
-
-
-
 
 
 
